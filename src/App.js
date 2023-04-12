@@ -88,7 +88,7 @@ let tie;
 
   return (
     <div className=" flex bg-slate-500 h-screen">
-      <div className=' flex flex-col items-center m-auto bg-slate-600 h-2/3 w-2/4 rounded-lg sm: h-1/2 w-2/3'>
+      <div className=' flex flex-col items-center m-auto bg-slate-600 h-2/3 w-2/4 rounded-lg sm: h-2/3 w-2/3'>
         <h1 className=" p-3 text-center text-slate-50 font-bold text-2xl">TIC TAC TOE GAME</h1> 
         <div className='flex-col'>
           <div className='flex m-1'>
