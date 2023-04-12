@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.game-over{
-    color: red;
-}
 
 .error-text{
     animation: blinkingText;

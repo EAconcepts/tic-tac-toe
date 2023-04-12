@@ -108,8 +108,8 @@ let tie;
             </div>
             
         </div>
-        <p className={`${player==="Game Over!" ?  'game-over':null} ${player===tie ? 'text-yellow-500':null} text-white`}>{player}</p>
-        <h1 className="text-slate-50 font-serif mt-5">{status} </h1>
+        <p className={`${player==="Game Over !" ?  ' text-red-500 font-bold': 'text-white'} `}>{player}</p>
+        <h1 className={`${status===tie ? "text-yellow-400" : "text-slate-50 font-serif mt-5"}`}>{status} </h1>
         <p className='  error-text'>{error}</p>
         {showButton && <button onClick={handleRefresh} className=' bg-slate-800 text-white rounded px-4 py-1 mt-3'>Play Again</button>}
       </div>
