@@ -2,23 +2,23 @@ import React, { useEffect, useState } from 'react'
 
 const Square = ({value, onSquareClick})=>{
   return(
-    
     <button className="h-10 w-10 mr-1 bg-white text-2xl text-slate-950" onClick={onSquareClick} >{value}</button>  
   )
-  
 }
 
 export default function App() {
+
   const [isXNext, setIsXNext] = useState(true)
   const [square, setSquare] = useState(Array(9).fill(null))
   const [hasPlayed, setHasPlayed] = useState(false)
   const [error, setError] = useState("")
   const [showButton, setShowButton] = useState(false)
 
-  let status
+  
  
   // Gets triggered after each square click
   const handleClick =(i)=>{
+  //Checks if a box is occupied 
       if (square[i]){
         setHasPlayed(hasPlayed)
         console.log("Played")
@@ -27,13 +27,12 @@ export default function App() {
       } else if(!square[i]){
         setHasPlayed(!hasPlayed)
         setError('')
-        // return hasPlayed
       }
-
+//Checks if a box is occupied or if there's a winner already
     if(square[i] || calculateWinner(square)){
       return ;
     }
-    
+//Check for the next player
     const nextSquare = square.slice()
     if(isXNext){
       nextSquare[i] ='X'
@@ -49,13 +48,15 @@ export default function App() {
 
  
 //Check and shows the winner of the game
+  let status
   let player;
   const winner = calculateWinner(square)
   if (winner){
     status = "The Winner is: " + winner + ". Great job!";
     console.log("Winner is: ", winner)
-    // return status
+    
   }
+
   //Checks for the next player
   if(!winner && isXNext){
     player ="Player 'X' is next"
@@ -64,6 +65,7 @@ export default function App() {
   }else{
     player ="Game Over !"
   }
+
   //Checks if there's no winner
 let tie;
   if(!winner && !square.includes(null)){
@@ -72,14 +74,15 @@ let tie;
     status =tie
   }
 
+//Handles the page reload to play again
   const handleRefresh =()=>{
     window.location.reload()
   }
 
+  //Checks and render the "Try Again" button if there's Game Over in the player variable
   useEffect(()=>{
     if(player === "Game Over !"){
       setShowButton(true)
-      console.log("YEAH YEAH!!")
     }
   },[player])
 
@@ -116,6 +119,7 @@ let tie;
   )
 }
 
+//Function to check for a winner in the game
 const calculateWinner = (square) =>{
   const lines =[
     [0, 1, 2],
