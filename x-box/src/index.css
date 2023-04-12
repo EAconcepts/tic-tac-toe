@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.game-over{
+    color: red;
+}
+
+.error-text{
+    animation: blinkingText;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+}
+
+@keyframes blinkingText{
+    from{color:red;} to{color: transparent;}
+}
