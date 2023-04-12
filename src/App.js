@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Square = ({value, onSquareClick})=>{
   return(
@@ -13,9 +13,10 @@ export default function App() {
   const [square, setSquare] = useState(Array(9).fill(null))
   const [hasPlayed, setHasPlayed] = useState(false)
   const [error, setError] = useState("")
+  const [showButton, setShowButton] = useState(false)
 
   let status
-  // let error
+ 
   // Gets triggered after each square click
   const handleClick =(i)=>{
       if (square[i]){
@@ -66,11 +67,21 @@ export default function App() {
   //Checks if there's no winner
 let tie;
   if(!winner && !square.includes(null)){
+    player = "Game Over !"
     tie= "No winner, try again."
-    player =tie
+    status =tie
   }
 
-// console.log(square.length)
+  const handleRefresh =()=>{
+    window.location.reload()
+  }
+
+  useEffect(()=>{
+    if(player === "Game Over !"){
+      setShowButton(true)
+      console.log("YEAH YEAH!!")
+    }
+  },[player])
 
   return (
     <div className=" flex bg-slate-500 h-screen">
@@ -97,6 +108,7 @@ let tie;
         <p className={`${player==="Game Over!" ?  'game-over':null} ${player===tie ? 'text-yellow-500':null} text-white`}>{player}</p>
         <h1 className="text-slate-50 font-serif mt-5">{status} </h1>
         <p className='  error-text'>{error}</p>
+        {showButton && <button onClick={handleRefresh} className=' bg-slate-800 text-white rounded px-4 py-1 mt-3'>Play Again</button>}
       </div>
       
       
