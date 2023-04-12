@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const Square = ({value, onSquareClick})=>{
   return(
-    <button className="h-10 w-10 mr-1 bg-white text-2xl text-slate-950" onClick={onSquareClick} >{value}</button>  
+    <button className="h-10 w-10 mr-1 bg-white text-2xl text-slate-950 " onClick={onSquareClick} >{value}</button>  
   )
 }
 
@@ -52,7 +52,7 @@ export default function App() {
   let player;
   const winner = calculateWinner(square)
   if (winner){
-    status = "The Winner is: " + winner + ". Great job!";
+    status = "The Winner is player '" + winner + "' 😊" + ". Great job!👍";
     console.log("Winner is: ", winner)
     
   }
@@ -70,7 +70,7 @@ export default function App() {
 let tie;
   if(!winner && !square.includes(null)){
     player = "Game Over !"
-    tie= "No winner, try again."
+    tie= "No winner 😔, try again."
     status =tie
   }
 
@@ -88,7 +88,7 @@ let tie;
 
   return (
     <div className=" flex bg-slate-500 h-screen">
-      <div className=' flex flex-col items-center m-auto bg-slate-600 h-2/3 w-2/4 rounded-lg'>
+      <div className=' flex flex-col items-center m-auto bg-slate-600 h-2/3 w-2/4 rounded-lg sm: h-1/2 w-2/3'>
         <h1 className=" p-3 text-center text-slate-50 font-bold text-2xl">TIC TAC TOE GAME</h1> 
         <div className='flex-col'>
           <div className='flex m-1'>
