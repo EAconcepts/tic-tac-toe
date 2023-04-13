@@ -52,7 +52,7 @@ export default function App() {
   let player;
   const winner = calculateWinner(square)
   if (winner){
-    status = "The Winner is player " + winner + " 😊" + ". Great job!👍";
+    status = `The Winner is player " + winner + " 😊" + ". Great job!👍`;
     console.log("Winner is: ", winner)
     
   }
