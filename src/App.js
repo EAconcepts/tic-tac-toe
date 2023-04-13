@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const Square = ({value, onSquareClick})=>{
   return(
-    <button className="h-10 w-10 mr-1 bg-white text-2xl text-slate-950 " onClick={onSquareClick} >{value}</button>  
+    <button className="h-10 w-10 mr-1 bg-white text-2xl text-slate-950 md:h-12 md:w-12 md:text-3xl lg:h-16 lg:w-16 lg:text-5xl" onClick={onSquareClick} >{value}</button>  
   )
 }
 
@@ -88,8 +88,8 @@ let tie;
 
   return (
     <div className=" flex bg-slate-500 h-screen">
-      <div className=' flex flex-col items-center m-auto bg-slate-600 h-2/3 w-2/4 rounded-lg sm: h-auto w-2/3 md:h-2/3 w-2/4 lg: w-3/5'>
-        <h1 className=" p-3 text-center text-slate-50 font-bold text-2xl">TIC TAC TOE GAME</h1> 
+      <div className=' flex flex-col items-center m-auto bg-slate-600 h-auto w-3/4 rounded-lg sm:w-1/2 sm:h-auto'>
+        <h1 className=" py-3 text-center text-slate-50 font-bold text-base sm:text-lg lg:text-3xl lg:my-3">TIC TAC TOE GAME</h1> 
         <div className='flex-col'>
           <div className='flex m-1'>
               <Square value={square[0]} onSquareClick={()=>handleClick(0)}/>
@@ -108,10 +108,10 @@ let tie;
             </div>
             
         </div>
-        <p className={`${player==="Game Over !" ?  ' text-red-500 font-bold': 'text-white'} `}>{player}</p>
-        <h1 className={`${status===tie ? "text-yellow-400" : "text-slate-50 font-serif mt-5"}`}>{status} </h1>
+        <p className={`${player==="Game Over !" ?  ' text-red-500 ': 'text-white'}font-bold text-base sm:text-lg sm:py-4 md:text-xl lg:text-2xl lg:py-6 `}>{player}</p>
+        <h1 className={`${status===tie ? "text-yellow-400" : "text-slate-50 "} font-serif mt-3 text-xs sm:text-base lg:text-2xl`}>{status} </h1>
         <p className='  error-text'>{error}</p>
-        {showButton && <button onClick={handleRefresh} className=' bg-slate-800 text-white rounded px-4 py-1 mt-3'>Play Again</button>}
+        {showButton && <button onClick={handleRefresh} className=' bg-slate-800 text-white rounded px-3 py-1 my-3 text-sm lg:text-2xl lg:py-3 lg:my-5'>Play Again</button>}
       </div>
       
       
